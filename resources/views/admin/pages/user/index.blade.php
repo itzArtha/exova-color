@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'User')
+@section('title', 'Profil')
 
 @section('css')
 
@@ -11,90 +11,99 @@
 
 @section('content')
 
-<x-content>
-    <x-slot name="modul">
-        <h1>User</h1>
-    </x-slot>
-
-    <x-section>
-        <x-slot name="title">
+    <x-content>
+        <x-slot name="modul">
+            <h1>Profil</h1>
         </x-slot>
-        
-        <x-slot name="header">
-            <h4>Data Users</h4>
-            <div class="card-header-form row">
-                <div>
-                    <form>
-                        <div class="input-group">
-                            <input type="text" name="search" id="search" class="form-control" placeholder="Pencarian"
-                                value="{{ Request::input('search') ?? ''}}">
-                            <div class="input-group-btn">
-                                <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+
+        <!-- Main Content -->
+        <section class="section">
+            <div class="section-body">
+                <h2 class="section-title">Selamat Datang, Ujang!</h2>
+                <p class="section-lead">
+                    Kamu bisa mengubah data diri kamu jadi orang bermuka 2 disini.
+                </p>
+
+                <div class="row mt-sm-4">
+                    <div class="col-12 col-md-12 col-lg-5">
+                        <div class="card profile-widget">
+                            <div class="profile-widget-header">
+                                <img alt="image" src="https://ui-avatars.com/api/?name=John+Doe"
+                                     class="rounded-circle profile-widget-picture">
+                                <div class="profile-widget-items">
+                                    <div class="profile-widget-item">
+                                        <div class="profile-widget-item-label">Galeri</div>
+                                        <div class="profile-widget-item-value">187</div>
+                                    </div>
+                                    <div class="profile-widget-item">
+                                        <div class="profile-widget-item-label">Followers</div>
+                                        <div class="profile-widget-item-value">6,8K</div>
+                                    </div>
+                                    <div class="profile-widget-item">
+                                        <div class="profile-widget-item-label">Terjual</div>
+                                        <div class="profile-widget-item-value">2,1K</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="profile-widget-description">
+                                <div class="text-primary">
+                                    @ujangmamang
+                                </div>
+                                <div class="profile-widget-name">Ujang Maman
+                                    <div class="text-muted d-inline font-weight-normal">
+                                        <div class="slash"></div>
+                                        Influencer
+                                    </div>
+                                </div>
+                                Ujang maman is a superhero name in <b>Indonesia</b>, especially in my family. He is
+                                not a fictional character but an original hero in my family, a hero for his children
+                                and for his wife. So, I use the name as a user in this template. Not a tribute, I'm
+                                just bored with <b>'John Doe'</b>.
                             </div>
                         </div>
-                    </form>
-                </div>
-                <div class="ml-2">
-                    <a href="#" class="btn btn-sm btn-primary">
-                        Tambah Data <i class="fas fa-plus"></i>
-                    </a>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-7">
+                        <div class="card">
+                            <form method="post" class="needs-validation" novalidate="">
+                                <div class="card-header">
+                                    <h4>Edit Profile</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="name">Nama Lengkap</label>
+                                        <input id="name" type="text" class="form-control" name="name" required
+                                               autofocus>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6 col-sm-12">
+                                            <label for="username">Username</label>
+                                            <input id="username" type="text" class="form-control" name="username"
+                                                   required>
+                                        </div>
+                                        <div class="form-group col-md-6 col-sm-12">
+                                            <label for="phone">No. Telepon</label>
+                                            <input id="phone" type="text" class="form-control" name="phone">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-12">
+                                            <label>Bio</label>
+                                            <textarea class="form-control">Ujang maman is a superhero name in <b>Indonesia</b>, especially in my family. He is not a fictional character but an original hero in my family, a hero for his children and for his wife. So, I use the name as a user in this template. Not a tribute, I'm just bored with <b>'John Doe'</b>.</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-right">
+                                    <button class="btn btn-primary">Simpan</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </x-slot>
+        </section>
 
-        <x-slot name="body">
-            <div class="table-responsive">
-                <table class="table table-bordered  table-md">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th style="width:150px">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse($users as $user)
-                        <tr>
-                            <td>{{ $loop->index + $users->firstItem() }}</td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>
-                                <a href="#"
-                                    class="btn btn-icon btn-sm btn-primary" data-toggle="tooltip"
-                                    data-placement="top" title="" data-original-title="Edit">
-                                    <i class="far fa-edit"></i>
-                                </a>
-                                <a href="#"
-                                    class="btn btn-icon btn-sm btn-info" data-toggle="tooltip" data-placement="top"
-                                    title="" data-original-title="Detail">
-                                    <i class="fas fa-info-circle"></i>
-                                </a>
-
-                                <a href="javascript:;" data-url="#"
-                                    data-id="{{ $user->id }}" data-redirect="#"
-                                    class="btn btn-sm btn-danger delete">
-                                    <i class="fas fa-times"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        @empty
-                        <tr>
-                            <td colspan="3">
-                                <p class="text-center"><em>There is no record.</em></p>
-                            </td>
-                        </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
-        </x-slot>
-
-        <x-slot name="footer">
-            {{ $users->onEachSide(2)->appends($_GET)->links('admin.partials.pagination') }}
-        </x-slot>
-    </x-section>
-
-</x-content>
+    </x-content>
 
 @endsection

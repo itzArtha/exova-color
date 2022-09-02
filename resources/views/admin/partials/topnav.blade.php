@@ -13,13 +13,13 @@
         <div class="dropdown-menu dropdown-list dropdown-menu-right">
             <div class="dropdown-header">Notifications
                 <div class="float-right">
-                    {{-- <a href="#">Mark All As Read</a> --}}
+                    <a href="#">Mark All As Read</a>
                 </div>
             </div>
             <div class="dropdown-list-content dropdown-list-icons">
                 <a href="#" class="dropdown-item dropdown-item-unread">
                     <div class="dropdown-item-icon bg-success text-white">
-                        <i class="fas fa-message"></i> 
+                        <i class="fas fa-message"></i>
                     </div>
                     <div class="dropdown-item-desc">
                         notification body
@@ -32,24 +32,27 @@
             </div>
         </div>
     </li>
-    <li class="dropdown">
-        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            <img alt="image" src="{{ asset('image/user.png') }}" class="rounded-circle mr-1">
-            <div class="d-sm-none d-lg-inline-block">Hi,
-                {{ auth()->user()->name ?? '' }}
-            </div>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right">
-            {{-- <a href="{{ route('profile.show') }}" class="dropdown-item has-icon">
-            <i class="far fa-user"></i> Profile
-            </a> --}}
-            <div class="dropdown-divider"></div>
-            <a href="javascript:;" class="dropdown-item has-icon text-danger"
-                onclick="document.querySelector('#logout_form').submit()">
-                <i class="fas fa-sign-out-alt"></i> Logout
+    @auth
+        <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                <img alt="image" src="{{ auth()->user()->getImageUrl() }}" class="rounded-circle mr-1">
+                <div class="d-sm-none d-lg-inline-block">Hi,
+                    {{ auth()->user()->name }}
+                </div>
             </a>
-            {{-- {{ Form::open(['route' => 'logout', 'id' => 'logout_form']) }}
-            {{ Form::close() }} --}}
-        </div>
-    </li>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a href="#" class="dropdown-item has-icon">
+                    <i class="far fa-user"></i> Profile
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="javascript:;" class="dropdown-item has-icon text-danger"
+                   onclick="document.querySelector('#logout_form').submit()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
+        </li>
+    @endauth
 </ul>
