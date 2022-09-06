@@ -11,4 +11,10 @@ class ProfileController extends Controller
     {
         return view('admin.pages.user.index');
     }
+
+    public function passwordIndex()
+    {
+        return view('admin.pages.user.password');
+    }
+
 }

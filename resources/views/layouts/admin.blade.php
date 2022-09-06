@@ -21,9 +21,9 @@
             <!-- Page Content -->
             @yield('content')
         </div>
-        <footer class="main-footer">
+{{--        <footer class="main-footer">--}}
             {{-- @include('admin.partials.footer') --}}
-        </footer>
+{{--        </footer>--}}
     </div>
 
     @include('admin.partials.script')

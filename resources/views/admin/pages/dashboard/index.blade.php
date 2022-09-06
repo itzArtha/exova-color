@@ -11,7 +11,6 @@
 @endsection
 
 @section('content')
-
     <x-content>
         <x-slot name="modul">
             <h1>Dashboard</h1>
