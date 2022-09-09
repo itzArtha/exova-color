@@ -26,5 +26,5 @@
         })
     })
 
-    const token = $('meta[name="csrf-token"]').attr('content');
+    var token = $('meta[name="csrf-token"]').attr('content');
 </script>

@@ -8,9 +8,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css"
       integrity="sha512-sopmFEmRVsWt542K+yzH3FQ1KJfdosOJG+bGLs9ZJT07b/3gUxRA9ICuJg2JtoZ9WeknAUuwJ0ggnmrV1YL6kQ=="
       crossorigin="anonymous" referrerpolicy="no-referrer"/>
-{{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chocolat/0.4.21/css/chocolat.css"--}}
-{{--      integrity="sha512-AZUM9Hjqzmj+fknOXYwJ+MYzwc9HAzYxD7Lntys/A1oLIlvJGtdjKV8Zu2X34dyC1DdTCNa2EhPVi171ury/Kg=="--}}
-{{--      crossorigin="anonymous" referrerpolicy="no-referrer" />--}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chocolat/0.4.21/css/chocolat.css"
+      integrity="sha512-AZUM9Hjqzmj+fknOXYwJ+MYzwc9HAzYxD7Lntys/A1oLIlvJGtdjKV8Zu2X34dyC1DdTCNa2EhPVi171ury/Kg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 @stack('css')
 <!-- Template CSS -->
